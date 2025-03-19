@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - FoodieFinder</title>
+    <link rel="stylesheet" href="styles/registration.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><img src="images/FoodieFinder Logo's.png"></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="btns">
+                <button class="btn_login"><a href="login.html">Log in</a></button>
+                <button class="btn_signup"><a href="signup.html">Sign up</a></button>
+            </div>
+        </div>
+    </header>
+<main>
+    <img src="images/sdImg.jpeg">
+    <div class="form-container">
+        <form id="registration-form">
+            <h2>Registration</h2>
+            
+<div class="input-group">
+    <label for="permit">BIR Certificate of Registration</label>
+    <div class="input-wrapper">
+    <input id="bir" type="file" accept="image/*" required>(Form 2303)
+    </div>
+</div>
+
+<div class="input-group">
+    <label for="permit">Mayors Permit</label>
+    <div class="input-wrapper">
+    <input id="permit" type="file" accept="image/*" required>
+    </div>
+</div>
+<div class="input-group">
+    <label for="permit">DTI/SEC Business Registration Certificate</label>
+    <div class="input-wrapper">
+    <input id="certificate" type="file" accept="image/*" required>
+    </div>
+</div>
+<div class="input-group">
+    <label for="permit">Registered Official Logo</label>
+    <div class="input-wrapper">
+    <input id="logo" type="file" accept="image/*" required>
+    </div>
+</div>
+<div class="input-group">
+    <label for="permit">A Legitimate Bank Account</label>
+    <div class="input-wrapper">
+    <input id="bank_account" type="file" accept="image/*" required>
+    </div>
+</div>
+<div class="input-group">
+    <label for="permit">Collection Receipt and Invoice</label>
+    <div class="input-wrapper">
+    <input id="receipt" type="file" accept="image/*" required>
+    </div>
+</div>
+
+<button onclick="openModal()" class="done-btn">Submit</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <img src="checkmark.png" alt="Success" class="popup-icon">  
+        <p>Your files have been uploaded successfully. Our admin team will now review them for authenticity. Please ensure that all documents are clear, valid, and unaltered to avoid rejection. You will receive an update once the validation is complete.</p>
+        <button class="ok-button" onclick="closeModal()">Done</button>
+    </div>
+</div>
+</form>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="sec sci">
+            <div class="logo">
+                <img src="images/FoodieFinder Logo's.png" width="250px">
+                <p>&copy; 2025 FoodieFinder. All rights reserved</p>
+                <ul class="icn">
+                    <li><img src="images/twt.png" width="15px"></li>
+                    <li><img src="images/fb.png" width="15x"></li>
+                    <li><img src="images/link.png" width="15x"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sec navigation">
+            <h2>Navigation</h2>
+            <ul class="navg">
+                <li><a href="active">Home</a></li> </br>
+                <li><a href="about.html">About Us</a></li> </br>
+                <li><a href="#">Contact Us</a></li> </br>
+                <li><a href="support.html">Support</a></li> </br>
+            </ul>
+        </div>
+        <div class="sec help">
+            <h2>Helpful Links</h2>
+            <ul class="navg">
+                <li><a href="#">Privacy Policy</a></li> </br>
+                <li><a href="#">Terms and Conditions</a></li> </br>
+                <li><a href="#">FAQs</a></li> </br>
+            </ul>
+        </div>
+    </div>
+  </footer>       
+<script>
+    function openModal() {
+        document.getElementById("myModal").style.display = "flex";
+    }
+    
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    document.getElementById("registration-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            let owner_id = localStorage.getItem("id");
+            let name = localStorage.getItem("shop_name");
+            let address = localStorage.getItem("shop_address");
+            let opening_time = localStorage.getItem("opening_time");
+            let closing_time = localStorage.getItem("closing_time");
+            let category = localStorage.getItem("shop_category");
+            let description = localStorage.getItem("shop_description");
+            let bir = document.getElementById("bir").files[0];
+            let permit = document.getElementById("permit").files[0];
+            let certificate = document.getElementById("certificate").files[0];
+            let logo = document.getElementById("logo").files[0];
+            let bank_account = document.getElementById("bank_account").files[0];
+            let receipt = document.getElementById("receipt").files[0];
+            let errorMessage = document.getElementById("errorMessage");
+
+            let formData = new FormData();
+            formData.append("owner_id", owner_id);
+            formData.append("shop_name", name);
+            formData.append("shop_address", address);
+            formData.append("opening_time", opening_time);
+            formData.append("closing_time", closing_time);
+            formData.append("shop_description", description);
+            formData.append("shop_category", category);
+            formData.append("bir_certificate", bir);
+            formData.append("mayors_permit", permit);
+            formData.append("dti_certificate", certificate);
+            formData.append("official_logo", logo);
+            formData.append("bank_account", bank_account);
+            formData.append("collection_receipt", receipt);
+    
+            try {
+                let response = await fetch("https://leopard-relevant-scorpion.ngrok-free.app/FFproject/FoodieFinder/api/shop-registration", {
+                    method: "POST",
+                    body: formData
+                });
+    
+                let data = await response.json();
+                console.log(data)
+    
+                if (data.status === 200) {
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("shop_id", data.id);
+    
+                    window.location.href = "dashboard.html";
+                } else {
+                    alert(data.message)
+                }
+            } catch (error) {
+                alert("Please check your internet connection");
+            }
+        });
+
+        document.querySelectorAll(".file-upload input").forEach(input => {
+            input.addEventListener("change", function () {
+                if (this.files && this.files[0]) {
+                    let reader = new FileReader();
+                    reader.onload = function (e) {
+                        let parent = input.parentElement;
+                        let imgElement = parent.querySelector("img");
+                        if (imgElement) {
+                            imgElement.src = e.target.result;
+                        }
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+        function updateFileName(input) {
+            let fileName = input.files.length > 0 ? input.files[0].name : "No file chosen";
+            input.parentElement.nextElementSibling.textContent = fileName;
+        }
+    </script>    
+</body>
+</html>

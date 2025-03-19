@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FoodieFinder</title>
+    <link rel="stylesheet" href="styles/authentication.css">
+</head>
+<body>
+    <img src="images/signupImg.png">
+    <header>
+        <div class="navbar">
+            <div class="logo"><img src="images/FoodieFinder Logo's.png"></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="btns">
+                <button class="btn_login"><a href="login.html">Log in</a></button>
+                <button class="btn_signup"><a href="signup.html">Sign up</a></button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form id="sign-up">
+                <h2>Sign up</h2>
+                <p>Already have an account? <a href="login.html">Log in</a></p>
+                
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <img src="images/email.png" alt="email">
+                        <input type="email" id="email" name="txtEmail" maxlength="50" placeholder="Enter Email" required>
+                    </div>
+                </div>
+    
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <img src="images/lock.png" alt="password">
+                        <input type="password" id="password" name="txtPw" maxlength="18" placeholder="Enter password" required>
+                    </div>
+                </div>
+    
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <img src="images/lock.png" alt="confirm password">
+                        <input type="password" id="confirm-password" name="txtConfirmPw" placeholder="Enter password" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="button">Sign up</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="sec sci">
+                <div class="logo">
+                    <img src="images/FoodieFinder Logo's.png">
+                    <p>&copy; 2025 FoodieFinder. All rights reserved</p>
+                    <ul class="icn">
+                        <li><img src="images/twt.png" width="15px"></li>
+                        <li><img src="images/fb.png" width="15px"></li>
+                        <li><img src="images/link.png" width="15px"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sec navigation">
+                <h2>Navigation</h2>
+                <ul class="navg">
+                    <li><a href="index.html">Home</a></li> </br>
+                    <li><a href="about.html">About Us</a></li> </br>
+                    <li><a href="contact.html">Contact Us</a></li> </br>
+                </ul>
+            </div>
+            <div class="sec help">
+                <h2>Helpful Links</h2>
+                <ul class="navg">
+                    <li><a href="#">Privacy Policy</a></li> </br>
+                    <li><a href="#">Terms and Conditions</a></li> </br>
+                    <li><a href="#">FAQs</a></li> </br>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("sign-up").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm-password").value;
+
+        if (confirmPassword === password) {
+            try {
+            let response = await fetch("https://leopard-relevant-scorpion.ngrok-free.app/FFproject/FoodieFinder/api/sign_up", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            let data = await response.json();
+            console.log(data);
+
+            if (data.status === 201) {
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("id", data.id);
+                window.location.href = "details.html";
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Please check your internet connection");
+        }
+            } else {
+                alert("Passwords do not match");
+            }
+
+       
+    });
+});
+</script>
+</body>
+</html>

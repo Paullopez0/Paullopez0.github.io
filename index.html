@@ -3,59 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Foodie Finder</title>
 </head>
 <body>
     <header>
-        <img src="iimages/Picture1.jpg" alt="">
-        <h1>JOHN PAUL S. LOPEZ</h1>
-        <nav>
-            <ul>
-                <li><a href="#skills">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+        <div class="navbar">
+            <div class="logo"><img src="images/FoodieFinder Logo's.png"></div>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
+            <div class="btns">
+                <button class="btn_login"><a href="login.html">Log in</a></button>
+                <button class="btn_signup"><a href="signup.html">Sign up</a></button>
+            </div>
+        </div>
     </header>
-
-    <section id="home">
-        <h2>Welcome to My Portfolio</h2>
-        <p>Hi there! My name is John Paul S. Lopez, 19 years of age, a second year student taking the course of Bachelor of Science in Information Technology at Phinma Upang Pangasinan.
-            Soon to be a Web Developer and Software Developer.
-        </p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <p><b>Basic Programming:</b> 
-        The capacity to understand and write simple codes in HTML, Python and Java</p>
-        <p><b>Communication Skills:</b>
-        The ability to communicate and understand costumers.</p>
-        <p><b>TroubleShoot:</b>
-        The ability to identify, diognose erros and solve common computer problem.</p>
-    </section>
-
-    <section id="portfolio">
-        <h2>Projects</h2>
-        <div class="portfolio-item">
-            <h3>INFO-DOCK</h3>
-            <p>A website where you can learn basic knowlegde in fishing and different kinds of fish.</p>
+    <div class="container">
+        <!--SECTION 1-->
+        <div class="section_1">
+            <div class="image_one">
+                <img src="images/4 89.png">
+                <p><pre>
+        Craving something new? Let
+        FoodieFinder match your taste and
+        mood. Explore, indulge, and enjoy!
+                </pre></p>
+            </div>
+            <div class="image_two">
+                <img src="images/Landing page.png">
+            </div>
         </div>
-        <div class="portfolio-item">
-            <h3>FOOD COMBINATOR</h3>
-            <p>An application where you can select a chosen food and select different kinds of method in cooking that dish.</p>
+        <!--SECTION 2-->
+        <div class="section_2">
+            <div class="content_holder">
+                <h1 class="content_title">Let the costumer taste your cuisine</h1>
+                <div class="holder">
+                    <div class="content">
+                        <h1>List your shop on Foodie Finder</h1>
+                        <br>
+                        <br>
+                        <pre>
+At FoodieFinder, we connect the Upang community
+with local food businesses, promoting convenience
+and celebrating the campus's vibrant food culture.
+
+            <p>Interested? Let's start our partnership now!</p>
+                        </pre>
+                        <br>
+                        <button class="gsBtn"><a href="">Get started!</a></button>
+                    </div>
+                    <div class="img_start">
+                    <img src="images/Get Started.png" width="500px">
+                    </div>
+                </div>
+            </div>
         </div>
+        <!--SECTION 3-->
+        <div class="section_3">
+            <div class="content_holder3">
+                <h1 class="content_title3">Put us in your pocket</h1>
+                <div class="holder3">
+                    <div class="content3">
+                        <h1>Download our app.</h1>
+                        <br>
+                        <br>
+                        <pre>
+At FoodieFinder, we connect the Upang community
+with local food businesses, promoting convenience
+and celebrating the campus's vibrant food culture.
 
-    </section>
+            <p>Get our app now for free!</p>
+                        </pre>
+                        <br>
+                        <button class="dlBtn"><a href="">Download now!</a></button>
+                    </div>
+                    <div class="img_Download">
+                    <img src="images/Download our app.png " width="620px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--SECTION 4-->
+        <div class="section_4">
+            <div class="content_4">
+                <h1>Follow Us</h1>
+                <br>
+                <pre>
+Stay connected with us and never miss out on the latest
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>How to contact me:</p>
-        <ul>
-            <li>Email: ohso.lopez@phinmaed.com</li>
-            <li>Github: <a href="https://github.com/Paullopez0/paullopez.github.io">Paullopez0</a></li>
+food discoveries. Follow us for updates, exclusive shops
+
+features, and tasty trends!
+                </pre>
+                <div class="icons">
+                    <img src="images/twt.png" width="25px">
+                    <img src="images/fb.png" width="25px">
+                    <img src="images/link.png" width="25px">
+                </div>
+            </div>
+            <div class="img_follow">
+                <img src="images/Follow us.png" width="500px">
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <footer>
+        <div class="footer-container">
+        <div class="sec sci">
+        <div class="logo">
+        <img src="images/FoodieFinder Logo's.png">
+        <p>© 2025 FoodieFinder. All rights reserved</p><br/>
+        <ul class="icn">
+        <li><img src="images/twt.png" width="30px"></li>
+        <li><img src="images/fb.png" width="30px"></li>
+        <li><img src="images/link.png" width="30px"></li>
         </ul>
-    </section>
+        </div>
+        </div>
+        <div class="sec navigation">
+        <h2>Navigation</h2>
+        <ul class="navg">
+        <li><a href="#">Home</a></li> <br/>
+        <li><a href="#">About Us</a></li> <br/>
+        <li><a href="#">Contact Us</a></li> <br/>
+        <li><a href="#">Support</a></li>
+        </ul>
+        </div>
+        
+        <div class="sec help">
+        <h2>Helpful Links</h2>
+        <ul class="navg">
+        <li><a href="#">Privacy Policy</a></li> <br/>
+        <li><a href="#">Terms and Conditions</a></li> <br/>
+        <li><a href="#">FAQs</a></li> <br/>
+        </ul>
+        </div>
+        </div>
+        </footer>
 </body>
 </html>
