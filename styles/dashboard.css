@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #FFEDE1;
+}
+
+.sidebar {
+    width: 220px;
+    border-radius: 5px;
+    background-color: #030303;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 20px 20px;
+    overflow-x: hidden;
+    z-index: 1000; /* Ensure the sidebar is above the header */
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links {
+    width: 80%;
+    height: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.links a {
+    color: rgba(255, 255, 255, 0.555);
+    text-decoration: none;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links:hover {
+    background-color: #FAA96C;
+}
+.links a:hover{
+    color: aliceblue;
+}
+.logout{
+    width: 80%;
+    height: 20px;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 15px;
+}
+.logout a {
+    color: rgba(255, 255, 255, 0.555);
+    text-decoration: none;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.logout:hover {
+    background-color: #f01911;
+}
+.logout:hover a{
+    color: aliceblue;
+}
+.header {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 220px);
+    position: fixed;
+    top: 0;
+    left: 220px;
+    z-index: 999; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.425);
+}
+
+.header-content {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+}
+
+.header h1 {
+    margin: 0;
+    color: #FAA96C;
+}
+
+.dashboard-container {
+    padding: 50px 50px 0px 50px;
+    margin-left: 240px;
+    margin-top: 60px; /* Adjusted to account for the header height */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img{
+    width: 100%;
+    height: 240px;
+    border-radius: 20px;
+    background-color: #FCC399;
+}
+.img img{
+    width: 100%;
+    height: 100%;
+}
+.orders{
+    width: 96%;
+    height: 180px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 50px;
+    padding: 20px;
+}
+table{
+    border: none;
+    width: 100%;
+}
+.contents th{
+    color: #FAA96C;
+}
+.orders td{
+    border: none;
+}
+.orders th{
+    width: 25%;
+    height:70px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.products{
+    width: 96%;
+    height: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 50px;
+}
+.products table{
+    border: none;
+    width: 100%;
+}
+.products td{
+    width: 20%;
+    height: 70px;
+    padding: 5px;
+    border-radius: 3px;
+    color: #FAA96C;
+}
+.products th{
+    width: 20%;
+    height: 230px;
+    padding: 5px;
+    border-radius: 3px;
+}
+footer {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    background: black;
+    font-family: 'Archivo';
+    }
+    
+    footer .logo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .logo img{
+        width: 100%;
+        height: 70px;
+
+    }
+    
+    .icn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .icn {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 5px; /* Ensures spacing between icons */
+    }
+    
+    .icn img {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    }
+    
+    footer .footer-container {
+      display: flex;
+      gap: 100px;
+      width: 100%;
+      justify-content: space-around;
+    }
+    
+    footer .footer-container .sec h2 {
+    position: relative;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 15px;
+    }
+    
+    footer .footer-container .sci p {
+    color: white;
+    }
+
+    footer .footer-container .sec ul li a{
+        color: white;
+        text-decoration: none;
+        }
+
+    footer .footer-container .sec ul li a:hover{
+        text-decoration: underline;
+        }    
+    
+    footer .footer-container .sec h2::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    }
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        height: auto;
+        position: relative;
+    }
+    .header {
+        width: 100%;
+        left: 0;
+    }
+    .dashboard-container {
+        margin-left: 0;
+        width: 100%;
+    }
+    .dashboard-stats {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar ul li a {
+        padding: 8px;
+    }
+    .stat-card {
+        padding: 15px;
+    }
+    .recent-orders th, .recent-orders td {
+        padding: 6px;
+    }
+}
